@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= category %> Posts</title>
+    <link rel="stylesheet" href="styles/pagestyles.css">
+    <link rel="stylesheet" href="styles/blogpagestyles.css">
+</head>
+
+<body>
+    <%- include("partials/header.ejs") %>
+    <div class="main-content">
+        <h1>~ <%= category %> Posts ~</h1>
+
+        <% if (posts.length > 0) { %>
+            <div class="post-wrapper">
+                <% posts.forEach(post => { %>
+                    <div class="post">
+                        <img src="<%= post.image || '/images/image_6.jpg' %>" alt="Blog Image" class="post-image">
+                        <div class="post-preview">
+                            <h2><a href="/single/<%= post.id %>"><%= post.title %></a></h2>
+                            <p class="preview-text">
+                                <%= post.message.length > 100 ? post.message.substring(0, 100) + "..." : post.message %>
+                            </p>
+                            <i class='bx bx-user-circle'><%= post.fullname %></i>
+                            <i class='bx bx-calendar'><%= post.date %></i>
+                            <a href="/single/<%= post.id %>" class="btn read-more">Read More</a>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        <% } else { %>
+            <p>No posts found in this category yet. Be the first to submit!</p>
+        <% } %>
+        <button id="scrollToTopBtn" onclick="scrollToTop()">Top ⇧</button>
+    </div>
+    <%- include("partials/footer.ejs") %>
+    <script src="js/blogscript.js"></script>
+</body>
+
+</html>

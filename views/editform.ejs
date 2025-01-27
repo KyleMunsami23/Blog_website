@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="/styles/pagestyles.css">
+    <link rel="stylesheet" href="/styles/blogpagestyles.css">
+</head>
+
+<body>
+    <%- include("partials/header.ejs") %>
+    <div class="main-content">
+        <h1>~ Manage Your Blogs ~</h1>
+
+        <% if (blogDataList.length > 0) { %>
+            <div class="post-wrapper">
+                <% blogDataList.forEach(post => { %>
+                    <div class="post">
+                        <img src="<%= post.image || '/images/image_6.jpg' %>" alt="Blog Image" class="post-image">
+                        <div class="post-preview">
+                            <h2><%= post.title %></h2>
+                            <p class="preview-text">
+                                <%= post.message.length > 100 ? post.message.substring(0, 100) + "..." : post.message %>
+                            </p>
+                            <i class='bx bx-user-circle'><%= post.fullname %></i>
+                            <i class='bx bx-calendar'><%= post.date %></i>
+
+                            <!-- Edit and Delete buttons -->
+                             <div class="editor_btn">
+                            <form action="/edit/<%= post.id %>" method="get" style="display:inline;">
+                                <button type="submit" class="editor_btn_edit ">Edit</button>
+                            </form>
+                            <form action="/delete/<%= post.id %>" method="post" style="display:inline;" onsubmit="return confirmDelete();">
+                                <button type="submit" class="editor_btn_delete" >Delete</button>
+                            </form>
+                        </div>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        <% } else { %>
+            <p>No posts available for editing. Add new blogs to manage them.</p>
+        <% } %>
+    </div>
+    <%- include("partials/footer.ejs") %>
+    <script src="/js/blogscript.js"></script>
+
+    <!-- JavaScript to handle the confirmation -->
+    <script>
+        function confirmDelete() {
+            return confirm("Are you sure you want to delete this post?");
+        }
+    </script>
+</body>
+
+</html>

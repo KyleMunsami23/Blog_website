@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Blog</title>
+    <link rel="stylesheet" href="styles/pagestyles.css">
+    <link rel="stylesheet" href="styles/newblogstyles.css">
+</head>
+
+<body>
+    <%- include("partials/header.ejs") %>
+        <div class="main-content">
+            <div class="input-form-selection">
+                <h2>~ Please Choose: ~</h2>
+                <div class="input-form-selection-btn">
+                    <button class="input-form-btn"><a href="/newform"> New Blog</a></button>
+                    <button class="input-form-btn"><a href="/editform"> Edit Blog</a></button>
+                </div>
+            </div>
+        </div>
+        <%- include("partials/footer.ejs") %>
+</body>
+
+</html>
+

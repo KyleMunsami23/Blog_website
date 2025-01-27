@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Index Page</title>
+  <link rel="stylesheet" href="styles/indexstyles.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+  <%- include("partials/header.ejs") %>
+  <div class="main-content">
+    <div class="post-slider">
+      <h1 class="slider-title">~Trending Posts~</h1>
+      <i class='bx bx-chevrons-left prev'></i>
+      <i class='bx bx-chevrons-right next'></i>
+
+      <div class="post-wrapper">
+        <% randomPosts.forEach(post => { %> <!-- Loop through randomPosts instead of static content -->
+          <div class="post">
+            <img src="<%= post.image || '/images/image_6.jpg' %>" alt="" class="slider-image">
+            <div class="post-info">
+              <h4><a href="/single/<%= post.id %>">
+                  <%= post.title %>
+                </a></h4>
+              <div class="author_date">
+                <i class='bx bx-user-circle'>
+                  <%= post.fullname %>
+                </i>
+                <i class='bx bx-calendar'>
+                  <%= post.date %>
+                </i>
+              </div>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+    </div>
+
+    <div class="class-content clearfix">
+      <div class="recent-post">
+        <h1 class="recent-post-title">~Recent Posts~</h1>
+
+        <% blogDataList.sort((a, b) => b.timestamp - a.timestamp) %> <!-- Sort blogDataList by timestamp in descending order -->
+        <% blogDataList.slice(0, 5).forEach(post => { %> <!-- Show the 5 most recent posts -->
+          <div class="post">
+            <img src="<%= post.image || '/images/image_6.jpg' %>" alt="Blog Image" class="post-image">
+
+            <div class="post-preview">
+              <h2><a href="/single/<%= post.id %>">
+                  <%= post.title %>
+                </a></h2>
+              <br>
+              <p class="preview-text">
+                <%= post.message.length > 100 ? post.message.substring(0, 100) + "..." : post.message %>
+              </p>
+              <i class='bx bx-user-circle'>
+                <%= post.fullname %>
+              </i>
+              <i class='bx bx-calendar'>
+                <%= post.date %>
+              </i>
+              <a href="/single/<%= post.id %>" class="btn read-more">Read More</a>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+
+    </div>
+
+    <button id="scrollToTopBtn" onclick="scrollToTop()">Top ⇧</button>
+
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+  <script src="js/indexscript.js"></script>
+  <%- include("partials/footer.ejs") %>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Page</title>
+    <link rel="stylesheet" href="/styles/blogstyles.css">
+    <link rel="stylesheet" href="/styles/headerstyles.css">
+    <link rel="stylesheet" href="/styles/footerstyles.css">
+
+
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+</head>
+
+<body>
+    <%- include("partials/header.ejs") %>
+        <div class="main-content">
+
+            <img src="<%= image %>" alt="Blog Image" class="blog-image"
+                onerror="this.onerror=null;this.src='../images/image_6.jpg';">
+            <div class="blog-content">
+
+                <h1>~ <%= title %> ~</h1>
+                <h3 class="hashtags">
+                    <%= hashtags %>
+                </h3>
+                <i class='bx bx-user-circle'>
+                    <%= fullname %>
+                </i>
+                <h4>
+                    <%= date %>
+                </h4>
+                <p>
+                    <%= message %>
+                </p>
+            </div>
+
+
+        </div>
+        <button id="scrollToTopBtn" onclick="scrollToTop()">Top ⇧</button>
+        <script src="/js/blogscript.js"></script>
+        <%- include("partials/footer.ejs") %>
+
+
+</body>
+
+</html>

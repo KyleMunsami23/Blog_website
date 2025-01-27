@@ -1,0 +1,126 @@
+.main-content {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+a{
+    text-decoration: none;
+}
+h1{
+    text-align: center;
+}
+
+.post-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+    gap: 20px;
+    padding: 20px 0;
+}
+.post {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 1rem 1rem 1rem -1rem black;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column; /* Makes the layout vertical */
+    height: 100%; /* Ensures the post takes full height of its container */
+}
+
+
+.post:hover {
+    transform: translateY(-10px);
+}
+
+.post-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-bottom: 2px solid #eee;
+}
+
+.post-preview {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* This ensures that the content area grows to take up available space */
+    justify-content: space-between;
+}
+
+
+.post-preview h2 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.post-preview .preview-text {
+    color: #666;
+    margin-top: 10px;
+    font-size: 1.0rem;
+    height: 60px; 
+    overflow: hidden;
+}
+
+.post-preview i {
+    margin-top: 5px; /* Reduces space between the icons */
+    margin-bottom: 10px;
+    color: #888;
+    font-size: 0.9rem;
+    align-self: flex-end;
+}
+
+.btn.read-more {
+    margin-top: auto; /* Pushes the button to the bottom */
+    padding: 10px 15px;
+    background-color: rgb(24, 130, 77);
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.btn.read-more:hover {
+    color: #ff00ea;
+    background-color: #000000;
+}
+
+.editor_btn{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    
+    
+}
+.editor_btn_edit,.editor_btn_delete{
+    font-size: 1.3rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    box-shadow: 1rem 1rem 1rem -1rem black;
+    background-color: rgb(24, 130, 77);
+    padding: 0.2em;
+    color: white;
+}
+
+.editor_btn_edit:hover, .editor_btn_delete:hover{
+    color:#ff00ea !important;  
+    background-color: #000000;
+}
+
+@media (max-width: 768px) {
+    /* For smaller screens (tablets and mobile), adjust the layout */
+    .post-wrapper {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+
+    .post-preview h2 {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    /* For very small screens, stack items in one column */
+    .post-wrapper {
+        grid-template-columns: 1fr;
+    }
+}

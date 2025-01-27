@@ -1,0 +1,64 @@
+.blog-input-form {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-top: 10px;
+    font-size: 24px;
+}
+
+input[type="text"],
+textarea,
+select {
+    padding: 10px;
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.form-buttons{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.form-buttons a{
+    text-decoration: none;
+    color:#ffffff !important; 
+}
+button {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: rgb(24, 130, 77);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button[type="button"] {
+    background-color: #000000;
+}
+
+button:hover,button a:hover {
+    opacity: 0.9;
+    color:#ff00ea !important;  
+    background-color: #000000;
+}

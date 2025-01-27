@@ -1,0 +1,17 @@
+footer {
+    position: relative;  
+    width: 100%;
+    background-color: rgb(24, 130, 77);
+    text-align: center;
+}
+
+/* Optional styles for paragraphs inside the footer */
+footer p {
+    font-size: 1.1rem;
+    letter-spacing: normal;
+}
+
+footer p:hover{
+    color: #ff00ea;
+    background-color: black;
+}

@@ -1,0 +1,48 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+.main-content{
+    margin-top: 80px;
+    display: block;
+    flex-grow: 1;
+  
+}
+#scrollToTopBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: none; 
+    z-index: 500;
+  }
+  
+  #scrollToTopBtn:hover {
+    background-color: #0056b3;
+  }
+  
+
+
+
+@media(max-width: 991px){
+    .main-content{
+        margin-top: 100px;
+    }
+}
+
+@media(max-width: 450px){
+    .main-content{
+        margin-top: 150px;
+    }
+}
