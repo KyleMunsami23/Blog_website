@@ -1,7 +1,8 @@
-import { name } from "ejs";
+
 import express from "express";
 import bodyParser from "body-parser";
 import multer from "multer";
+import ejs from 'ejs';
 
 
 import { dirname } from "path";
